@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Appends Cursor co-author to every commit in this repo (if not already present).
+# Enable once: git config core.hooksPath .githooks  (setup.sh does this)
+
+set -euo pipefail
+
+COMMIT_MSG_FILE="${1:?}"
+COMMIT_SOURCE="${2:-}"
+
+# Skip merge/squash commits where message is pre-filled
+case "${COMMIT_SOURCE}" in
+  merge|squash|commit) exit 0 ;;
+esac
+
+if grep -qiE 'Co-authored-by:.*Cursor' "$COMMIT_MSG_FILE" 2>/dev/null; then
+  exit 0
+fi
+
+{
+  echo ""
+  echo "Co-authored-by: Cursor <cursoragent@cursor.com>"
+} >> "$COMMIT_MSG_FILE"
+
+exit 0

@@ -24,9 +24,14 @@ npx playwright install chromium
 mkdir -p "$(dirname "$CURSOR_SKILL")"
 cp "$INSTALL_DIR/skills/scrolltape/SKILL.md" "$CURSOR_SKILL"
 
+# Git: Cursor as co-author on every commit
+chmod +x "$INSTALL_DIR/.githooks/prepare-commit-msg"
+git -C "$INSTALL_DIR" config core.hooksPath .githooks
+
 echo ""
 echo "✅ scrolltape ready at $INSTALL_DIR"
 echo "✅ Cursor skill installed at $CURSOR_SKILL"
+echo "✅ Git hook enabled — Cursor co-author on every commit"
 echo ""
 echo "Daily use — paste to any agent:"
 echo "  scrolltape https://yoursite.com"
