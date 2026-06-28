@@ -1,0 +1,10 @@
+{
+  "url": "https://thinktank.sh/",
+  "cursor": "white-pointer",
+  "heroHoldSec": 3,
+  "tour": "interactive-hero",
+  "viewport": "landscape",
+  "scrollSpeed": "normal",
+  "sectionIds": ["hero", "proof", "why", "how", "built", "opensource", "quickstart", "cta"],
+  "outputName": "thinktank-scrolltape"
+}

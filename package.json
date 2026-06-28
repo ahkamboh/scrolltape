@@ -1,0 +1,40 @@
+{
+  "name": "scrolltape",
+  "version": "0.1.0",
+  "description": "Automated landing-page screen recordings — custom cursor, smooth scroll, no blank opening",
+  "type": "module",
+  "bin": {
+    "scrolltape": "./bin/scrolltape.mjs"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "cursors",
+    "examples",
+    "docs"
+  ],
+  "scripts": {
+    "record": "node bin/scrolltape.mjs record",
+    "demo": "node bin/scrolltape.mjs record -c examples/thinktank.json"
+  },
+  "keywords": [
+    "screen-recording",
+    "playwright",
+    "landing-page",
+    "demo",
+    "site-tour",
+    "cursor-overlay"
+  ],
+  "author": "ahkamboh",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahkamboh/scrolltape"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "playwright": "^1.52.0"
+  }
+}
