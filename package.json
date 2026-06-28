@@ -1,7 +1,7 @@
 {
   "name": "scrolltape",
   "version": "0.1.0",
-  "description": "Automated landing-page screen recordings — custom cursor, smooth scroll, no blank opening",
+  "description": "Paste a link — get a site demo video. AI-agent friendly screen recorder with custom cursor and smooth scroll.",
   "type": "module",
   "bin": {
     "scrolltape": "./bin/scrolltape.mjs"

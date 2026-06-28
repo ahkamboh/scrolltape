@@ -1,49 +1,97 @@
-# scrolltape — Agent prompts
+# Agent prompts
 
-Copy-paste these to any AI agent that has access to the scrolltape repo.
+Repo: **https://github.com/ahkamboh/scrolltape**
 
-## Minimal
+Replace `YOUR_SITE_URL` with your page.
 
-```
-Record https://example.com — scrolltape
-```
+---
 
-## Full control
+## Universal (any agent)
 
 ```
-Record https://example.com
-Repo: scrolltape (github.com/ahkamboh/scrolltape)
-- cursor: white-pointer
-- hero: 3s
-- tour: interactive-hero
-- viewport: landscape
-- scroll: normal
-Run: scrolltape record --url ... with parsed flags. Deliver MP4 path.
+Record a demo video for YOUR_SITE_URL using scrolltape.
+
+Repo: https://github.com/ahkamboh/scrolltape
+Clone, npm install, npx playwright install chromium, record the URL, give me the MP4.
 ```
 
-## Cute + portrait teaser
+---
+
+## Cursor
 
 ```
-Record https://example.com — scrolltape
+Record a demo video for YOUR_SITE_URL using scrolltape.
+
+Repo: https://github.com/ahkamboh/scrolltape
+Clone it, npm install, npx playwright install chromium, run the recorder, and give me the MP4 path.
+
+Defaults: white pointer cursor, 3s hero hold, smooth scroll tour.
+Trim blank load screen. Deliver renders/*.mp4
+```
+
+---
+
+## Claude Code
+
+```
+Make a site demo video for YOUR_SITE_URL.
+
+Use scrolltape: https://github.com/ahkamboh/scrolltape
+git clone, npm install, npx playwright install chromium
+Run: node bin/scrolltape.mjs record --url YOUR_SITE_URL
+Return the MP4 file path when done.
+```
+
+---
+
+## Codex
+
+```
+Record YOUR_SITE_URL as an MP4 demo using the scrolltape project.
+
+https://github.com/ahkamboh/scrolltape
+
+Steps:
+1. clone + npm install + npx playwright install chromium
+2. node bin/scrolltape.mjs record --url YOUR_SITE_URL
+3. return renders/*.mp4 path
+```
+
+---
+
+## Hermes
+
+```
+I need a landing page demo video for YOUR_SITE_URL.
+
+Tool: scrolltape (https://github.com/ahkamboh/scrolltape)
+Clone the repo, install deps, record the URL, export MP4 from renders/ folder.
+Use white-pointer cursor, 3 second hero hold, standard scroll tour.
+```
+
+---
+
+## OpenClaw
+
+```
+Create a screen-recording demo of YOUR_SITE_URL.
+
+Project: https://github.com/ahkamboh/scrolltape
+Clone → npm install → npx playwright install chromium → record URL → send me the MP4.
+```
+
+---
+
+## With custom options
+
+```
+Record YOUR_SITE_URL — scrolltape https://github.com/ahkamboh/scrolltape
+
 cursor: cute-paw
-tour: quick-teaser
+hero: 3s
+tour: interactive-hero
 viewport: portrait
 scroll: fast
-```
 
-## Feature focus
-
-```
-Record https://example.com — scrolltape
-tour: feature-focus
-focus: pricing, features
-cursor: mac-hand
-scroll: slow
-```
-
-## Build / extend scrolltape
-
-```
-Add a new cursor preset to scrolltape: neon-ring (glowing cyan circle).
-Update cursors/, lib/cursors.mjs, README cursor table, and test with thinktank.sh.
+Clone repo, run recorder, deliver MP4.
 ```
