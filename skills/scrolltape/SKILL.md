@@ -18,6 +18,8 @@ If `~/scrolltape` missing or no deps:
 ```bash
 git clone https://github.com/ahkamboh/scrolltape.git ~/scrolltape
 cd ~/scrolltape && npm install && npx playwright install chromium
+# ffmpeg is required (it renders the MP4/WebM). If `ffmpeg -version` fails, install it:
+#   macOS: brew install ffmpeg  ·  Ubuntu: sudo apt install ffmpeg  ·  Windows: winget install ffmpeg
 ```
 
 Copy this skill file to the user's agent skill folder so future prompts need only a URL:
