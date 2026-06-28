@@ -69,7 +69,7 @@ node bin/scrolltape.mjs https://yoursite.com --cursor cute-paw --tour interactiv
 
 | Flag | Values | Default |
 |------|--------|---------|
-| `--cursor` | white-pointer · mac-hand · cute-paw · brand-dot | white-pointer |
+| `--cursor` | mac-hand · white-pointer · cute-paw · brand-dot | mac-hand |
 | `--tour` | standard · interactive-hero · hero-only · quick-teaser · deep-dive · feature-focus | standard |
 | `--viewport` | landscape · portrait · square | landscape |
 | `--scroll` | slow · normal · fast | normal |

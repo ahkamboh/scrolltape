@@ -64,7 +64,7 @@ Hook at `.githooks/prepare-commit-msg` adds this automatically if `git config co
 
 | Param | Default |
 |-------|---------|
-| cursor | white-pointer |
+| cursor | mac-hand |
 | hero | 3s |
 | tour | standard |
 | viewport | landscape 1920×1080 |
