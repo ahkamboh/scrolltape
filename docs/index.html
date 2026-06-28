@@ -49,6 +49,14 @@
     .feat h3 i{color:var(--accent);font-style:normal}
     .feat p{color:var(--muted);font-size:14px}
     .sec-h{font-family:"Bricolage Grotesque";font-weight:700;font-size:clamp(24px,3.4vw,34px);letter-spacing:-.02em;margin:10px 0 18px;text-align:center}
+    .shots{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0 8px}
+    .shot{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+    .shot img{width:100%;display:block;border-bottom:1px solid var(--line);background:#000}
+    .shot .meta{padding:14px 16px}
+    .shot .meta h3{font-size:15.5px;font-weight:600;display:flex;align-items:center;gap:8px}
+    .shot .meta h3 code{font-family:var(--mono);font-size:12.5px;color:var(--accent2);background:rgba(255,90,60,.1);border:1px solid rgba(255,90,60,.22);padding:2px 8px;border-radius:7px;font-weight:500}
+    .shot .meta p{color:var(--muted);font-size:13.5px;margin-top:6px}
+    @media(max-width:560px){.shots{grid-template-columns:1fr}}
     .term{background:#0d0e11;border:1px solid var(--line);border-radius:14px;overflow:hidden;max-width:680px;margin:0 auto}
     .term-bar{display:flex;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line)}
     .term-bar .d{width:11px;height:11px;border-radius:50%}
@@ -90,6 +98,21 @@
       <div class="feat"><h3><i>⌘</i> 100% local</h3><p>Playwright + ffmpeg on your machine. No cloud, no upload, no account.</p></div>
       <div class="feat"><h3><i>↯</i> Agent skill</h3><p>Set it up once in Cursor / Claude Code / Codex — then just paste URLs.</p></div>
       <div class="feat"><h3><i>⚙</i> Tunable</h3><p>Tours, viewports (landscape · portrait · square) and scroll speed via simple flags.</p></div>
+    </section>
+
+    <section>
+      <h2 class="sec-h">More than a scroll</h2>
+      <p class="vcap" style="margin-bottom:8px">It can interact with the page <i>while</i> it records — fill forms, click through nav, tour every page.</p>
+      <div class="shots">
+        <div class="shot">
+          <a href="fill.mp4"><img src="fill.gif" alt="scrolltape filling a signup form" loading="lazy" /></a>
+          <div class="meta"><h3>Fill a form <code>--fill</code></h3><p>Finds the form (even below the fold), types realistic values, clicks submit — guarded, so it never sends or navigates.</p></div>
+        </div>
+        <div class="shot">
+          <a href="follow.mp4"><img src="follow.gif" alt="scrolltape touring Home, Pricing and About" loading="lazy" /></a>
+          <div class="meta"><h3>Tour pages <code>--follow</code></h3><p>Clicks through the nav and records every page in one continuous take. Or name routes with <span class="mono">--visit</span>.</p></div>
+        </div>
+      </div>
     </section>
 
     <section id="start">

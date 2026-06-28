@@ -84,6 +84,26 @@ node bin/scrolltape.mjs https://yoursite.com --cursor cute-paw --tour interactiv
 
 Full help: `node bin/scrolltape.mjs --help`
 
+## 🎬 More than a scroll
+
+scrolltape can interact with the page *while* it records — handy for product demos that show real flows, not just a wall of text scrolling by.
+
+**Fill a form** — `--fill` finds the signup/contact form (even below the fold), types realistic sample values, and clicks submit. It's guarded, so it never actually navigates away or sends anything:
+
+<p align="center">
+  <img src="docs/fill.gif" width="640" alt="scrolltape --fill typing into a signup form" />
+  <br/>
+  <sub><a href="https://ahkamboh.github.io/scrolltape/fill.mp4">▶ watch</a> · <code>scrolltape https://yoursite.com --fill</code></sub>
+</p>
+
+**Tour multiple pages** — `--follow` clicks through the nav and records every page in one continuous take (or name exact routes with `--visit /pricing,/about`):
+
+<p align="center">
+  <img src="docs/follow.gif" width="640" alt="scrolltape --follow touring Home, Pricing and About in one video" />
+  <br/>
+  <sub><a href="https://ahkamboh.github.io/scrolltape/follow.mp4">▶ watch</a> · <code>scrolltape https://yoursite.com --follow</code></sub>
+</p>
+
 ## How it works
 
 Playwright opens the page headless and records it while scrolltape drives a smooth, eased scroll and a cursor overlay; ffmpeg trims the load-in and exports MP4 + WebM. No cloud, no upload — 100% on your machine.
