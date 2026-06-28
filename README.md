@@ -15,7 +15,9 @@
 </p>
 
 <p align="center">
-  <video src="https://ahkamboh.github.io/scrolltape/demo.mp4" poster="docs/demo-poster.png" width="720" controls muted loop playsinline></video>
+  <img src="docs/demo.gif" width="720" alt="scrolltape demo — auto-recorded site walkthrough" />
+  <br/>
+  <sub><a href="https://ahkamboh.github.io/scrolltape/demo.mp4">▶ watch the full video</a></sub>
 </p>
 
 ---
@@ -75,6 +77,8 @@ node bin/scrolltape.mjs https://yoursite.com --cursor cute-paw --tour interactiv
 | `--scroll` | slow · normal · fast | normal |
 | `--hero` | seconds to hold on the hero | 3 |
 | `--focus` | section ids to emphasize (`a,b,c`) | — |
+| `--visit` | also tour these routes in the same demo (`/pricing,/about`) | — |
+| `--follow` | auto-follow the nav links and tour those pages too | off |
 | `-o, --output` | output filename base | `<domain>-scrolltape` |
 
 Full help: `node bin/scrolltape.mjs --help`
