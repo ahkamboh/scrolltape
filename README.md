@@ -138,6 +138,8 @@ More prompts: [PROMPT.md](PROMPT.md) · Agent skill: [skills/scrolltape/SKILL.md
 
 Built with **[Cursor](https://cursor.com)** · [PARTNERS.md](PARTNERS.md)
 
+Every commit in this repo credits Cursor as co-author (`Co-authored-by: Cursor <cursoragent@cursor.com>`). See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ---
 
 ## License

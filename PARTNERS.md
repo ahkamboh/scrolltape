@@ -19,3 +19,13 @@ Download Cursor: https://cursor.com
 **[ahkamboh](https://github.com/ahkamboh)** — creator & maintainer
 
 Repository: https://github.com/ahkamboh/scrolltape
+
+## Commit attribution
+
+All scrolltape commits include:
+
+```
+Co-authored-by: Cursor <cursoragent@cursor.com>
+```
+
+Enabled via `.githooks/prepare-commit-msg` — run `bash scripts/setup.sh` once per clone.
