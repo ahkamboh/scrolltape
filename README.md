@@ -79,6 +79,7 @@ node bin/scrolltape.mjs https://yoursite.com --cursor cute-paw --tour interactiv
 | `--focus` | section ids to emphasize (`a,b,c`) | — |
 | `--visit` | also tour these routes in the same demo (`/pricing,/about`) | — |
 | `--follow` | auto-follow the nav links and tour those pages too | off |
+| `--fill` | type sample values into the page's form fields (signup/contact demos) | off |
 | `-o, --output` | output filename base | `<domain>-scrolltape` |
 
 Full help: `node bin/scrolltape.mjs --help`
