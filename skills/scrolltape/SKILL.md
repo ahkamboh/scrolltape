@@ -38,7 +38,7 @@ Confirm setup to user. After this, **never ask to clone or install skill again**
 
 When user message contains a URL or says "scrolltape" / "record demo":
 
-1. Parse URL + optional: `cursor`, `hero`, `tour`, `viewport`, `scroll`, `focus`
+1. Parse URL + optional: `cursor`, `hero`, `tour`, `viewport`, `scroll`, `focus`, `visit` (other routes, e.g. /pricing,/about), `follow` (auto-tour nav links)
 2. Run from `~/scrolltape`:
 
 ```bash
