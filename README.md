@@ -7,6 +7,28 @@ Automated site tours with a custom cursor, smooth scroll, and zero blank opening
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-green.svg)](https://nodejs.org)
 [![Playwright](https://img.shields.io/badge/playwright-automation-2EAD33.svg)](https://playwright.dev)
+[![Cursor Co-Partner](https://img.shields.io/badge/Cursor-Co--Partner-000000?style=for-the-badge&logo=cursor&logoColor=white)](https://cursor.com)
+
+---
+
+## Co-partner
+
+<table>
+  <tr>
+    <td align="center" width="200">
+      <a href="https://cursor.com">
+        <img src="docs/cursor-partner.svg" alt="Cursor" width="120" />
+      </a>
+    </td>
+    <td>
+      <strong><a href="https://cursor.com">Cursor</a></strong> — Co-partner<br><br>
+      scrolltape was designed, built, and shipped with <strong>Cursor</strong>, the AI code editor.
+      Cursor agents drive the recording workflow, skill templates, and open-source docs for this project.<br><br>
+      <a href="https://cursor.com"><img src="https://img.shields.io/badge/Download-Cursor-000000?style=flat-square&logo=cursor&logoColor=white" alt="Download Cursor" /></a>
+      · <a href="PARTNERS.md">Partners</a>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -239,4 +261,4 @@ PRs welcome. Run `npm run demo` before submitting to verify the pipeline still w
 
 ## License
 
-[MIT](LICENSE) © [ahkamboh](https://github.com/ahkamboh)
+[MIT](LICENSE) © [ahkamboh](https://github.com/ahkamboh) · Co-partner: [Cursor](https://cursor.com)
