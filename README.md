@@ -15,9 +15,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ahkamboh/scrolltape/raw/main/docs/demo.mp4">
-    <img src="docs/demo-poster.png" width="640" alt="scrolltape demo — auto-recorded site walkthrough" />
-  </a>
+  <video src="https://ahkamboh.github.io/scrolltape/demo.mp4" poster="docs/demo-poster.png" width="720" controls muted loop playsinline></video>
 </p>
 
 ---
