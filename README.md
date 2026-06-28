@@ -2,8 +2,6 @@
 
 **Paste a link. Get a demo video.**
 
-scrolltape is an AI-agent tool that records any site or landing page as a screen-recording demo — custom cursor, smooth scroll, MP4 out. No OBS. No manual editing.
-
 **Repo:** https://github.com/ahkamboh/scrolltape
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -19,103 +17,106 @@ scrolltape is an AI-agent tool that records any site or landing page as a screen
 
 ---
 
-## How to use (simple)
+## One-time setup
 
-**1.** Paste a prompt below into your AI agent  
-**2.** Replace `YOUR_SITE_URL` with the page you want  
-**3.** Agent clones scrolltape, records, gives you `renders/*.mp4`
+Do this **once** per machine. After that, you only paste URLs.
 
-That's it.
-
----
-
-## Copy-paste prompts
-
-Replace `YOUR_SITE_URL` with your link (e.g. `https://thinktank.sh/`).
-
-### Cursor
-
-```
-Record a demo video for YOUR_SITE_URL using scrolltape.
-
-Repo: https://github.com/ahkamboh/scrolltape
-Clone it, npm install, npx playwright install chromium, run the recorder, and give me the MP4 path.
-
-Defaults: white pointer cursor, 3s hero hold, smooth scroll tour.
-Trim blank load screen. Deliver renders/*.mp4
-```
-
-### Claude Code
-
-```
-Make a site demo video for YOUR_SITE_URL.
-
-Use scrolltape: https://github.com/ahkamboh/scrolltape
-git clone, npm install, npx playwright install chromium
-Run: node bin/scrolltape.mjs record --url YOUR_SITE_URL
-Return the MP4 file path when done.
-```
-
-### Codex
-
-```
-Record YOUR_SITE_URL as an MP4 demo using the scrolltape project.
-
-https://github.com/ahkamboh/scrolltape
-
-Steps:
-1. clone + npm install + npx playwright install chromium
-2. node bin/scrolltape.mjs record --url YOUR_SITE_URL
-3. return renders/*.mp4 path
-```
-
-### Hermes
-
-```
-I need a landing page demo video for YOUR_SITE_URL.
-
-Tool: scrolltape (https://github.com/ahkamboh/scrolltape)
-Clone the repo, install deps, record the URL, export MP4 from renders/ folder.
-Use white-pointer cursor, 3 second hero hold, standard scroll tour.
-```
-
-### OpenClaw
-
-```
-Create a screen-recording demo of YOUR_SITE_URL.
-
-Project: https://github.com/ahkamboh/scrolltape
-Clone → npm install → npx playwright install chromium → record URL → send me the MP4.
-```
-
-### With options (any agent)
-
-```
-Record YOUR_SITE_URL — scrolltape https://github.com/ahkamboh/scrolltape
-
-cursor: cute-paw
-hero: 3s
-tour: interactive-hero
-viewport: landscape
-scroll: normal
-
-Clone repo, run recorder, deliver MP4.
-```
-
----
-
-## Or run it yourself
+### Option A — script (Cursor)
 
 ```bash
-git clone https://github.com/ahkamboh/scrolltape.git
-cd scrolltape
-npm install
-npx playwright install chromium
-
-npm run record -- --url https://thinktank.sh/
+git clone https://github.com/ahkamboh/scrolltape.git ~/scrolltape
+bash ~/scrolltape/scripts/setup.sh
 ```
 
-Output: `renders/<site>-scrolltape.mp4`
+### Option B — tell your agent once
+
+Copy **one** of these setup prompts. Run it a single time. Your agent installs the skill and remembers scrolltape forever.
+
+<details>
+<summary><strong>Cursor</strong> (one-time)</summary>
+
+```
+Set up scrolltape (one time only):
+
+Repo: https://github.com/ahkamboh/scrolltape
+1. Clone to ~/scrolltape
+2. npm install && npx playwright install chromium
+3. Copy skills/scrolltape/SKILL.md → ~/.cursor/skills/scrolltape/SKILL.md
+4. Tell me "scrolltape ready" — from now on I will only paste URLs
+```
+
+</details>
+
+<details>
+<summary><strong>Claude Code</strong> (one-time)</summary>
+
+```
+Set up scrolltape (one time only):
+
+Repo: https://github.com/ahkamboh/scrolltape
+1. Clone to ~/scrolltape, npm install, npx playwright install chromium
+2. Save skills/scrolltape/SKILL.md to ~/.claude/skills/scrolltape/SKILL.md
+3. Confirm ready — I will only send URLs after this
+```
+
+</details>
+
+<details>
+<summary><strong>Codex</strong> (one-time)</summary>
+
+```
+One-time scrolltape setup: https://github.com/ahkamboh/scrolltape
+Clone ~/scrolltape, install deps, save skills/scrolltape/SKILL.md to ~/.codex/skills/scrolltape/SKILL.md
+Confirm when done.
+```
+
+</details>
+
+<details>
+<summary><strong>Hermes · OpenClaw · any agent</strong> (one-time)</summary>
+
+```
+One-time setup for scrolltape: https://github.com/ahkamboh/scrolltape
+Clone ~/scrolltape, npm install, npx playwright install chromium,
+install skills/scrolltape/SKILL.md into my agent skills folder.
+Confirm ready — after this I only paste site links.
+```
+
+</details>
+
+---
+
+## Daily use — just paste a link
+
+After setup, **no repo link, no clone, no skill instructions needed.**
+
+Replace the URL with your page:
+
+```
+scrolltape https://thinktank.sh/
+```
+
+```
+Record demo: https://myapp.com
+```
+
+```
+scrolltape https://myapp.com
+cursor: cute-paw
+tour: interactive-hero
+hero: 3s
+```
+
+Your agent reads `SKILL.md`, runs the recorder, returns `renders/*.mp4`.
+
+---
+
+## Or run CLI yourself
+
+```bash
+cd ~/scrolltape
+npm run record -- --url https://thinktank.sh/
+```
 
 ---
 
@@ -129,15 +130,13 @@ Output: `renders/<site>-scrolltape.mp4`
 | `--viewport` | landscape · portrait · square | landscape |
 | `--scroll` | slow · normal · fast | normal |
 
-```bash
-scrolltape record -u https://example.com --cursor cute-paw --tour interactive-hero
-```
+More prompts: [PROMPT.md](PROMPT.md) · Agent skill: [skills/scrolltape/SKILL.md](skills/scrolltape/SKILL.md)
 
 ---
 
 ## Co-partner
 
-Built with **[Cursor](https://cursor.com)** — the AI code editor. See [PARTNERS.md](PARTNERS.md).
+Built with **[Cursor](https://cursor.com)** · [PARTNERS.md](PARTNERS.md)
 
 ---
 
