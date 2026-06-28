@@ -54,6 +54,8 @@
     .term-bar .d{width:11px;height:11px;border-radius:50%}
     .term pre{margin:0;padding:18px 20px;font-family:var(--mono);font-size:13.5px;line-height:1.85;color:#d8d7da;white-space:pre-wrap}
     .term .c{color:var(--muted)} .term .p{color:var(--accent)} .term .o{color:#7fd1a6}
+    .copybtn{margin-left:auto;font-family:var(--mono);font-size:12px;color:#180a06;background:var(--accent);border:none;border-radius:8px;padding:5px 13px;cursor:pointer;font-weight:600;transition:.2s}
+    .copybtn:hover{filter:brightness(1.08)}
     footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 50px;text-align:center;color:var(--muted);font-size:13.5px}
     footer a{color:var(--accent2)}
     @media(max-width:560px){.feats{grid-template-columns:1fr}}
@@ -91,27 +93,62 @@
     </section>
 
     <section id="start">
-      <h2 class="sec-h">Up and running in three commands</h2>
+      <h2 class="sec-h">Set it up once — then just paste links</h2>
+      <p class="vcap" style="margin-bottom:18px">Paste this into <b style="color:var(--ink)">Cursor · Claude Code · Codex</b> — or any AI agent — and it installs scrolltape for you. After that you only send URLs.</p>
       <div class="term">
-        <div class="term-bar"><span class="d" style="background:#ff5f57"></span><span class="d" style="background:#febc2e"></span><span class="d" style="background:#28c840"></span></div>
-<pre><span class="c"># 1. install (once)</span>
-<span class="p">$</span> git clone https://github.com/ahkamboh/scrolltape ~/scrolltape
-<span class="p">$</span> cd ~/scrolltape && npm install && npx playwright install chromium
-<span class="c"># needs ffmpeg too — brew/apt/winget install ffmpeg</span>
+        <div class="term-bar">
+          <span class="d" style="background:#ff5f57"></span><span class="d" style="background:#febc2e"></span><span class="d" style="background:#28c840"></span>
+          <span style="margin-left:8px;font-family:var(--mono);font-size:12px;color:var(--muted)">setup prompt — paste &amp; go</span>
+          <button id="copyPrompt" type="button" class="copybtn">copy prompt</button>
+        </div>
+<pre id="promptText"><span class="c"># paste me into your AI agent ↓</span>
+You are setting up scrolltape — paste a link, get a smooth, cursor-guided demo
+video of any website (github.com/ahkamboh/scrolltape). It runs 100% on my machine. Set it up:
 
-<span class="c"># 2. record any site</span>
-<span class="p">$</span> node bin/scrolltape.mjs https://yoursite.com
-<span class="o">→ renders/yoursite-scrolltape.mp4  (+ .webm)</span>
-
-<span class="c"># 3. add a flavor</span>
-<span class="p">$</span> node bin/scrolltape.mjs https://yoursite.com <span class="p">--cursor</span> cute-paw <span class="p">--tour</span> interactive-hero</pre>
+1. clone + install (one time):
+   <span class="p">git clone https://github.com/ahkamboh/scrolltape ~/scrolltape</span>
+   <span class="p">cd ~/scrolltape && npm install && npx playwright install chromium</span>
+2. make sure ffmpeg is installed (renders the MP4/WebM):
+   brew / apt / winget install ffmpeg
+3. install the skill so future requests need only a URL — copy
+   skills/scrolltape/SKILL.md into my agent's skills folder
+   (Cursor ~/.cursor/skills/ · Claude ~/.claude/skills/ · Codex ~/.codex/skills/)
+4. confirm ready — after this I'll just paste a site link and you record it.</pre>
       </div>
-      <p class="vcap" style="margin-top:18px">Prefer your AI agent? Drop the one-time skill into Cursor / Claude Code / Codex and just paste links. <a href="https://github.com/ahkamboh/scrolltape#use-it-from-your-ai-agent-optional" style="color:var(--accent2)">See the README →</a></p>
+      <p class="vcap" style="margin-top:16px">Then daily: <span class="mono" style="color:var(--accent2)">scrolltape https://yoursite.com</span> — or run the CLI yourself: <span class="mono">node bin/scrolltape.mjs &lt;url&gt;</span>. <a href="https://github.com/ahkamboh/scrolltape" style="color:var(--accent2)">README →</a></p>
     </section>
 
     <footer>
       MIT © <a href="https://github.com/ahkamboh">ahkamboh</a> · built with <a href="https://cursor.com">Cursor</a> · <a href="https://github.com/ahkamboh/scrolltape">github.com/ahkamboh/scrolltape</a>
     </footer>
   </div>
+  <script>
+    const PROMPT = [
+      "You are setting up scrolltape — paste a link, get a smooth, cursor-guided demo",
+      "video of any website (github.com/ahkamboh/scrolltape). It runs 100% on my machine. Set it up:",
+      "",
+      "1. clone + install (one time):",
+      "   git clone https://github.com/ahkamboh/scrolltape ~/scrolltape",
+      "   cd ~/scrolltape && npm install && npx playwright install chromium",
+      "2. make sure ffmpeg is installed (renders the MP4/WebM):",
+      "   brew / apt / winget install ffmpeg",
+      "3. install the skill so future requests need only a URL — copy",
+      "   skills/scrolltape/SKILL.md into my agent's skills folder",
+      "   (Cursor ~/.cursor/skills/ · Claude ~/.claude/skills/ · Codex ~/.codex/skills/)",
+      "4. confirm ready — after this I'll just paste a site link and you record it."
+    ].join("\n");
+    function copyText(t){
+      if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(t);
+      return new Promise((res, rej) => {
+        try { const ta = document.createElement("textarea"); ta.value = t; ta.setAttribute("readonly",""); ta.style.position="fixed"; ta.style.top="-1000px"; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); document.body.removeChild(ta); res(); }
+        catch (e) { rej(e); }
+      });
+    }
+    const b = document.getElementById("copyPrompt");
+    b.addEventListener("click", () => {
+      copyText(PROMPT).then(() => { b.textContent = "copied ✓"; setTimeout(() => (b.textContent = "copy prompt"), 1600); })
+        .catch(() => { b.textContent = "press ⌘/Ctrl+C"; setTimeout(() => (b.textContent = "copy prompt"), 2000); });
+    });
+  </script>
 </body>
 </html>

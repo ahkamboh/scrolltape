@@ -22,38 +22,50 @@
 
 ---
 
-## What it is
+## ⚡ Set it up with your AI agent
 
-One command turns any URL into a polished screen recording — **smooth auto-scroll**, an **animated cursor**, a hero pause — exported as **MP4 + WebM**. Great for landing-page demos, launch tweets, and README headers. Runs **100% on your machine** (Playwright + ffmpeg) — nothing is uploaded.
+Paste this into **Cursor, Claude Code, Codex — or any AI agent** and it sets scrolltape up for you (one time). After that, you only paste URLs.
 
-## Install (once)
+```
+You are setting up scrolltape — paste a link, get a smooth, cursor-guided demo video
+of any website (github.com/ahkamboh/scrolltape). It runs 100% on my machine. Set it up:
 
-```bash
-git clone https://github.com/ahkamboh/scrolltape ~/scrolltape
-cd ~/scrolltape
-npm install
-npx playwright install chromium          # the headless browser
+1. clone + install (one time):
+   git clone https://github.com/ahkamboh/scrolltape ~/scrolltape
+   cd ~/scrolltape && npm install && npx playwright install chromium
+2. make sure ffmpeg is installed (it renders the MP4/WebM) — if `ffmpeg -version` fails,
+   install it: macOS brew install ffmpeg · Ubuntu sudo apt install ffmpeg · Windows winget install ffmpeg
+3. install the skill so future requests need only a URL — copy skills/scrolltape/SKILL.md
+   into my agent's skills folder (Cursor ~/.cursor/skills/ · Claude ~/.claude/skills/ · Codex ~/.codex/skills/)
+4. confirm ready — after this I'll just paste a site link and you record it.
 ```
 
-You also need **ffmpeg** (renders the MP4/WebM):
+## Daily use — just paste a link
 
-| macOS | Ubuntu | Windows |
-|-------|--------|---------|
-| `brew install ffmpeg` | `sudo apt install ffmpeg` | `winget install ffmpeg` |
+After setup, no clone and no flags needed — just send a URL:
 
-## Use it
+```
+scrolltape https://yoursite.com
+```
+
+Optionally tweak it:
+
+```
+scrolltape https://yoursite.com
+cursor: cute-paw
+tour: interactive-hero
+```
+
+Your agent reads [`skills/scrolltape/SKILL.md`](skills/scrolltape/SKILL.md), records it, and returns the `renders/*.mp4`.
+
+## Or run the CLI yourself
 
 ```bash
-node bin/scrolltape.mjs https://yoursite.com
+cd ~/scrolltape
+node bin/scrolltape.mjs https://yoursite.com --cursor cute-paw --tour interactive-hero
 ```
 
 → writes `renders/yoursite-scrolltape.mp4` (and `.webm`).
-
-Add a flavor:
-
-```bash
-node bin/scrolltape.mjs https://yoursite.com --cursor cute-paw --tour interactive-hero --scroll slow
-```
 
 ## Options
 
@@ -69,35 +81,9 @@ node bin/scrolltape.mjs https://yoursite.com --cursor cute-paw --tour interactiv
 
 Full help: `node bin/scrolltape.mjs --help`
 
-## Use it from your AI agent (optional)
-
-scrolltape ships an **agent skill** — set it up once, then just paste URLs to **Cursor / Claude Code / Codex** and it records them for you.
-
-<details>
-<summary><b>One-time agent setup</b></summary>
-
-Paste this to your agent a single time:
-
-```
-Set up scrolltape (one time): https://github.com/ahkamboh/scrolltape
-1. Clone to ~/scrolltape, then run:  npm install && npx playwright install chromium
-2. Copy skills/scrolltape/SKILL.md into my agent's skills folder
-   (Cursor: ~/.cursor/skills/ · Claude: ~/.claude/skills/ · Codex: ~/.codex/skills/)
-3. Confirm ready — after this I'll just paste site links.
-```
-
-After that, daily use is just a URL:
-
-```
-scrolltape https://myapp.com
-```
-
-The agent reads [`skills/scrolltape/SKILL.md`](skills/scrolltape/SKILL.md), runs the recorder, and returns the `renders/*.mp4`.
-</details>
-
 ## How it works
 
-Playwright opens the page headless and records it while scrolltape drives a smooth eased scroll and a cursor overlay; ffmpeg trims the load-in and exports MP4 + WebM. No cloud, no upload.
+Playwright opens the page headless and records it while scrolltape drives a smooth, eased scroll and a cursor overlay; ffmpeg trims the load-in and exports MP4 + WebM. No cloud, no upload — 100% on your machine.
 
 ## License
 
