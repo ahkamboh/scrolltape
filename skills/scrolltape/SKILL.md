@@ -48,6 +48,16 @@ node bin/scrolltape.mjs record --url <URL> [--cursor ...] [--tour ...] [--hero .
 
 **Do not** re-explain repo, re-clone, or re-install skill on every request.
 
+## Commits (scrolltape repo only)
+
+When committing changes to scrolltape, append to every commit message:
+
+```
+Co-authored-by: Cursor <cursoragent@cursor.com>
+```
+
+Hook at `.githooks/prepare-commit-msg` adds this automatically if `git config core.hooksPath .githooks` is set (setup.sh enables it).
+
 ## Defaults
 
 | Param | Default |
