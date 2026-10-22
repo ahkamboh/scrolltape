@@ -2,7 +2,7 @@
 
 ## Commits
 
-**Author:** [ahkamboh](https://github.com/ahkamboh) (`hi@alihamzakamboh.com`)
+**Author:** [ahkamboh](https://github.com/ahkamboh) (hi@ahkamboh.com). Commits are authored as `123060177+ahkamboh@users.noreply.github.com`.
 
 **Co-author:** Cursor is added automatically on every commit in this repo:
 
